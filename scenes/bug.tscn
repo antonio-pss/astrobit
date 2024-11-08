@@ -1,30 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr5x31csauxyp"]
+[gd_scene load_steps=12 format=3 uid="uid://be8g8guqca4ik"]
 
-[ext_resource type="Texture2D" uid="uid://jrc8m5n1ky1" path="res://images/enemy/ci-dead/0.png" id="1_wlcmb"]
+[ext_resource type="Texture2D" uid="uid://kwmcu35bnq0d" path="res://images/enemy/ci-walk/0.png" id="1_1gjym"]
+[ext_resource type="Script" path="res://scenes/bug.gd" id="1_hulps"]
+[ext_resource type="Texture2D" uid="uid://4rau2c5uu3xt" path="res://images/enemy/ci-walk/1.png" id="2_rhlr5"]
+[ext_resource type="Texture2D" uid="uid://chh6xw10gs0v5" path="res://images/enemy/ci-walk/2.png" id="3_8pf8d"]
+[ext_resource type="Texture2D" uid="uid://cgoap22dudsge" path="res://images/enemy/ci-walk/3.png" id="4_h8nni"]
+[ext_resource type="Texture2D" uid="uid://0m8nllvh4spu" path="res://images/enemy/ci-walk/4.png" id="5_745ki"]
+[ext_resource type="Texture2D" uid="uid://nx3jyj2qbbh7" path="res://images/enemy/ci-walk/5.png" id="6_fg1na"]
+[ext_resource type="Texture2D" uid="uid://dhptmc1ii1s04" path="res://images/enemy/ci-walk/6.png" id="7_btqho"]
+[ext_resource type="Texture2D" uid="uid://d04uxbe6tmv5i" path="res://images/enemy/ci-walk/7.png" id="8_e7w6i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8ufjr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgsb5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_wlcmb")
+"texture": ExtResource("1_1gjym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rhlr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8pf8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h8nni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_745ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fg1na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_btqho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e7w6i")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"walk",
+"speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks7xl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stwkk"]
 height = 26.0
 
-[node name="Bug" type="CharacterBody2D"]
+[node name="PathFollow2D" type="PathFollow2D"]
+script = ExtResource("1_hulps")
 
-[node name="Bug" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -16)
-sprite_frames = SubResource("SpriteFrames_8ufjr")
-animation = &"idle"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -16)
+sprite_frames = SubResource("SpriteFrames_qgsb5")
+animation = &"walk"
+autoplay = "walk"
+frame = 7
+frame_progress = 0.87859
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -13)
-rotation = 3.14159
-shape = SubResource("CapsuleShape2D_ks7xl")
-one_way_collision = true
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-2, -13)
+shape = SubResource("CapsuleShape2D_stwkk")
