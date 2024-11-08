@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr5x31csauxyp"]
+
+[ext_resource type="Texture2D" uid="uid://jrc8m5n1ky1" path="res://images/enemy/ci-dead/0.png" id="1_wlcmb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ufjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wlcmb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks7xl"]
+height = 26.0
+
+[node name="Bug" type="CharacterBody2D"]
+
+[node name="Bug" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -16)
+sprite_frames = SubResource("SpriteFrames_8ufjr")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -13)
+rotation = 3.14159
+shape = SubResource("CapsuleShape2D_ks7xl")
+one_way_collision = true

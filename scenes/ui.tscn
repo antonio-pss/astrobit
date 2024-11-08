@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo75ksavjug0x"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_hxtbb"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_hxtbb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "10"

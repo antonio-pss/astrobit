@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ohya14ox2850"]
+
+[ext_resource type="Script" path="res://scenes/spike.gd" id="1_bp301"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_d78sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nktcj"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h21qs"]
+size = Vector2(26, 5)
+
+[node name="Spike" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_bp301")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Industrial-plataform" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_d78sj")
+region_enabled = true
+region_rect = Rect2(192, 273, 32, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_nktcj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_h21qs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
