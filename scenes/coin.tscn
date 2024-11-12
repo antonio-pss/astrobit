@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm28qkrjlt4tq"]
+
+[ext_resource type="Script" path="res://scenes/coin.gd" id="1_7ocyp"]
+[ext_resource type="Texture2D" uid="uid://bbitybrj0by2v" path="res://images/coins/0.png" id="1_smiey"]
+[ext_resource type="Texture2D" uid="uid://cgh8v7soaynd7" path="res://images/coins/3.png" id="2_0t23c"]
+[ext_resource type="Texture2D" uid="uid://dm1k48farr7cd" path="res://images/coins/1.png" id="3_jyrb1"]
+[ext_resource type="Texture2D" uid="uid://dmjurpu1s3co4" path="res://images/coins/4.png" id="4_8tcd4"]
+[ext_resource type="Texture2D" uid="uid://8aenbo3krxva" path="res://images/coins/5.png" id="5_wiwnd"]
+[ext_resource type="Texture2D" uid="uid://l4mpwouhmk3u" path="res://images/coins/6.png" id="6_n2l1g"]
+[ext_resource type="Texture2D" uid="uid://chciregb54vp6" path="res://images/coins/7.png" id="7_4d1oo"]
+[ext_resource type="Texture2D" uid="uid://befao1hxdleo6" path="res://images/coins/8.png" id="8_gorhm"]
+[ext_resource type="Texture2D" uid="uid://k3pwxlemky67" path="res://images/coins/9.png" id="9_hklt1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85xod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_smiey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0t23c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jyrb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8tcd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wiwnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n2l1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4d1oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gorhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hklt1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p21mv"]
+
+[node name="Coin" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_7ocyp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_85xod")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.167588
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p21mv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

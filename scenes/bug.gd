@@ -13,3 +13,9 @@ func _process(delta: float) -> void:
 	elif progress_ratio == 0:
 		sprite.flip_h = false
 		speed *= -1
+
+
+func _on_hit_box_body_entered(_body: Node2D) -> void:
+	sprite.play('death')
+	
+	queue_free()

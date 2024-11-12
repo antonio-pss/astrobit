@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://bkyh4ymwe0jqd"]
+[gd_scene load_steps=14 format=4 uid="uid://bkyh4ymwe0jqd"]
 
 [ext_resource type="PackedScene" uid="uid://c2gxdinly830n" path="res://scenes/player.tscn" id="1_ht5ux"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_oyngj"]
 [ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_b1fcd"]
 [ext_resource type="PackedScene" uid="uid://ddp4xqal5xv28" path="res://scenes/jump_station.tscn" id="3_rq2l1"]
 [ext_resource type="PackedScene" uid="uid://ohya14ox2850" path="res://scenes/spike.tscn" id="4_jnpa6"]
-[ext_resource type="PackedScene" uid="uid://wf8fcm7cukit" path="res://scenes/check_point.tscn" id="6_2imf3"]
+[ext_resource type="PackedScene" uid="uid://bgdowdp0lrp14" path="res://scenes/check_point.tscn" id="6_2imf3"]
 [ext_resource type="PackedScene" uid="uid://be8g8guqca4ik" path="res://scenes/bug.tscn" id="6_qcubp"]
+[ext_resource type="PackedScene" uid="uid://cm28qkrjlt4tq" path="res://scenes/coin.tscn" id="8_0yjb7"]
+[ext_resource type="PackedScene" uid="uid://b6djh4jhxhxkg" path="res://scenes/coffee.tscn" id="9_bs7sr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su23s"]
 texture = ExtResource("2_b1fcd")
@@ -154,7 +156,7 @@ point_count = 3
 script = ExtResource("1_oyngj")
 
 [node name="Player" parent="." instance=ExtResource("1_ht5ux")]
-position = Vector2(135, -17)
+position = Vector2(98, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -175,13 +177,30 @@ one_way_collision_margin = 0.0
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="JumpStation" parent="Objects" instance=ExtResource("3_rq2l1")]
+[node name="Coins" type="Node" parent="Objects"]
+
+[node name="Coin" parent="Objects/Coins" instance=ExtResource("8_0yjb7")]
+position = Vector2(-242, -241)
+
+[node name="Coin2" parent="Objects/Coins" instance=ExtResource("8_0yjb7")]
+position = Vector2(1224, -183)
+
+[node name="Coffee" type="Node" parent="Objects"]
+
+[node name="Coffee" parent="Objects/Coffee" instance=ExtResource("9_bs7sr")]
+position = Vector2(-243, -261)
+
+[node name="Jump" type="Node" parent="Objects"]
+
+[node name="JumpStation" parent="Objects/Jump" instance=ExtResource("3_rq2l1")]
 position = Vector2(496, -7)
 
-[node name="JumpStation2" parent="Objects" instance=ExtResource("3_rq2l1")]
+[node name="JumpStation2" parent="Objects/Jump" instance=ExtResource("3_rq2l1")]
 position = Vector2(-240, -104)
 
-[node name="Spike" parent="Objects" instance=ExtResource("4_jnpa6")]
+[node name="Spike" type="Node" parent="Objects"]
+
+[node name="Spike" parent="Objects/Spike" instance=ExtResource("4_jnpa6")]
 position = Vector2(621, -160)
 
 [node name="Enemies" type="Node" parent="."]
@@ -199,10 +218,10 @@ loop = false
 
 [node name="Checkpoints" type="Node" parent="."]
 
-[node name="CheckPoint" parent="Checkpoints" instance=ExtResource("6_2imf3")]
-position = Vector2(1110, -160)
-
 [node name="InitialSpawn" type="Marker2D" parent="Checkpoints"]
 position = Vector2(98, -26)
+
+[node name="CheckPoint" parent="Checkpoints" instance=ExtResource("6_2imf3")]
+position = Vector2(1116, -160)
 
 [connection signal="body_entered" from="Boundery/Bottom" to="." method="_on_bottom_body_entered"]

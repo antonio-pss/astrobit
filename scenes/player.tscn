@@ -56,10 +56,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g0vu"]
-radius = 7.0
+radius = 9.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(2, 0)
 collision_mask = 15
 script = ExtResource("1_ggdme")
@@ -67,9 +68,8 @@ script = ExtResource("1_ggdme")
 [node name="Bit" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -15)
 sprite_frames = SubResource("SpriteFrames_3ohut")
-animation = &"jump"
-frame_progress = 0.822008
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -12)
+position = Vector2(1, -12)
 shape = SubResource("CapsuleShape2D_2g0vu")

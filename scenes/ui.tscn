@@ -1,15 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo75ksavjug0x"]
+[gd_scene load_steps=3 format=3 uid="uid://bo75ksavjug0x"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_hxtbb"]
+[ext_resource type="Texture2D" uid="uid://bbitybrj0by2v" path="res://images/coins/0.png" id="2_x55h8"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_hxtbb")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Life" type="MarginContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.25, 1.25)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 3
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Life"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "10"
+
+[node name="Score" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_right = -200.0
+offset_bottom = 28.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="BoxContainer" type="BoxContainer" parent="Score"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Score/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_x55h8")
+
+[node name="Label" type="Label" parent="Score/BoxContainer"]
+layout_mode = 2
+text = "0
+"

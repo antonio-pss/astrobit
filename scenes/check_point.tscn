@@ -1,42 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://wf8fcm7cukit"]
+[gd_scene load_steps=6 format=3 uid="uid://bgdowdp0lrp14"]
 
-[ext_resource type="Script" path="res://check_point.gd" id="1_tyhuv"]
+[ext_resource type="Script" path="res://scenes/check_point.gd" id="1_tyhuv"]
 [ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_af660"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_so6yd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgxmb"]
 atlas = ExtResource("2_af660")
 region = Rect2(160, 224, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gdcqp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xa2sw"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"checked",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_so6yd")
+"texture": SubResource("AtlasTexture_vgxmb")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kf70"]
-size = Vector2(39, 94)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65til"]
+size = Vector2(40, 85)
 
 [node name="CheckPoint" type="Area2D"]
-collision_layer = 4
 script = ExtResource("1_tyhuv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_gdcqp")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_xa2sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -47)
-shape = SubResource("RectangleShape2D_2kf70")
+position = Vector2(1, -42.5)
+shape = SubResource("RectangleShape2D_65til")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
