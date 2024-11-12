@@ -8,6 +8,7 @@ size = Vector2(32, 14)
 
 [node name="JumpStation" type="StaticBody2D"]
 position = Vector2(0, -7)
+collision_layer = 4
 script = ExtResource("1_g52ku")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,6 +22,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_8sfyc")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8sfyc")

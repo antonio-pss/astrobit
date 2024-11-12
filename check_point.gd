@@ -1,9 +1,0 @@
-extends Area2D
-
-var active: bool = true
-
-func _on_body_entered(_body: Node2D) -> void:
-	if active:
-		Globals.spawnpoint = global_position
-		active = false
-		

@@ -1,20 +1,49 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2gxdinly830n"]
+[gd_scene load_steps=14 format=3 uid="uid://c2gxdinly830n"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ggdme"]
-[ext_resource type="Texture2D" uid="uid://bvoyp1fjfl1xd" path="res://images/bit/bit-walk/0.png" id="1_xywar"]
-[ext_resource type="Texture2D" uid="uid://bhuv2vxfff45i" path="res://images/bit/bit-jump/0.png" id="2_qxqwp"]
-[ext_resource type="Texture2D" uid="uid://bntuh7kbgvfkm" path="res://images/bit/bit-jump/1.png" id="3_66l2w"]
-[ext_resource type="Texture2D" uid="uid://7t6cggt51hot" path="res://images/bit/bit-jump/2.png" id="4_2lvv4"]
-[ext_resource type="Texture2D" uid="uid://d2ogk5pwsx6iw" path="res://images/bit/bit-jump/3.png" id="5_ajj4l"]
-[ext_resource type="Texture2D" uid="uid://c00w03w7btd23" path="res://images/bit/bit-walk/1.png" id="6_dobpt"]
-[ext_resource type="Texture2D" uid="uid://dojv8lcixu6kx" path="res://images/bit/bit-walk/2.png" id="7_7g40y"]
-[ext_resource type="Texture2D" uid="uid://c3fxn1ogrug4e" path="res://images/bit/bit-walk/3.png" id="8_8lomw"]
+[ext_resource type="Texture2D" uid="uid://btye3w8amu68y" path="res://images/bit.png" id="2_51a6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leap7"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(0, 0, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgk1f"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(0, 31, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcdum"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(34, 31, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6bgb"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(68, 31, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_035ei"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(102, 31, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuxx5"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(0, 0, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drm46"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(34, 0, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i4jy"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(68, 0, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtb24"]
+atlas = ExtResource("2_51a6h")
+region = Rect2(102, 0, 34, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ohut"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xywar")
+"texture": SubResource("AtlasTexture_leap7")
 }],
 "loop": true,
 "name": &"idle",
@@ -22,16 +51,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qxqwp")
+"texture": SubResource("AtlasTexture_pgk1f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_66l2w")
+"texture": SubResource("AtlasTexture_qcdum")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2lvv4")
+"texture": SubResource("AtlasTexture_n6bgb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ajj4l")
+"texture": SubResource("AtlasTexture_035ei")
 }],
 "loop": true,
 "name": &"jump",
@@ -39,16 +68,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xywar")
+"texture": SubResource("AtlasTexture_iuxx5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_dobpt")
+"texture": SubResource("AtlasTexture_drm46")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_7g40y")
+"texture": SubResource("AtlasTexture_1i4jy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_8lomw")
+"texture": SubResource("AtlasTexture_gtb24")
 }],
 "loop": true,
 "name": &"walk",
@@ -57,7 +86,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g0vu"]
 radius = 9.0
-height = 24.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -69,7 +98,8 @@ script = ExtResource("1_ggdme")
 position = Vector2(-2, -15)
 sprite_frames = SubResource("SpriteFrames_3ohut")
 animation = &"idle"
+frame_progress = 0.318973
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -12)
+position = Vector2(-2, -12)
 shape = SubResource("CapsuleShape2D_2g0vu")

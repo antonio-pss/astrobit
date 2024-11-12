@@ -17,6 +17,8 @@ func update_life() -> void:
 	for index in range(lifes.size()):
 		if index + 1 > Globals.player_health:
 			lifes[index].texture = coffee_empty
+		else:
+			lifes[index].texture = coffee_full
 			
 func add_life() -> void:
 	if Globals.player_health > lifes.size():

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo75ksavjug0x"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_hxtbb"]
-[ext_resource type="Texture2D" uid="uid://bbitybrj0by2v" path="res://images/coins/0.png" id="2_x55h8"]
+[ext_resource type="Texture2D" uid="uid://dqg4tcnktg5aa" path="res://images/coin.png" id="2_qxycc"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_hxtbb")
@@ -38,7 +38,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_x55h8")
+texture = ExtResource("2_qxycc")
 
 [node name="Label" type="Label" parent="Score/BoxContainer"]
 layout_mode = 2

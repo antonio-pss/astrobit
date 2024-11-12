@@ -15,7 +15,12 @@ func _process(delta: float) -> void:
 		speed *= -1
 
 
-func _on_hit_box_body_entered(_body: Node2D) -> void:
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	body.velocity.y = -300
 	sprite.play('death')
+	speed = 0
 	
-	queue_free()
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "death":
+		queue_free()
