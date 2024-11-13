@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0p7g631v458x"]
+
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_ipqgn"]
+[ext_resource type="Script" path="res://scenes/falling_spike.gd" id="1_uu7f4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85xnm"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mppt"]
+size = Vector2(38, 225)
+
+[node name="FallingSpike" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_uu7f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_ipqgn")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(195, 273, 26, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_85xnm")
+
+[node name="ViewBox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewBox"]
+position = Vector2(0, 112.5)
+shape = SubResource("RectangleShape2D_3mppt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ViewBox" to="." method="_on_view_box_body_entered"]

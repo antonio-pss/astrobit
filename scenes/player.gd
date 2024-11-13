@@ -7,6 +7,8 @@ class_name Player
 @export var speed = 200.0
 @export var jump_height = -400.0
 
+var vunerable: bool = true
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
 		sprite.flip_h = true
@@ -14,8 +16,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("right"):
 		sprite.flip_h = false
 
-
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -38,3 +38,12 @@ func animation():
 		sprite.play('walk')
 	else:
 		sprite.play('idle')
+
+func hit():
+	if vunerable:
+		Globals.player_health -= 1
+		$HitTimer.start()
+		vunerable = false
+
+func _on_hit_timer_timeout() -> void:
+	vunerable = true
