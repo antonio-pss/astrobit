@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvgm2xmd0g73f"]
+[gd_scene load_steps=5 format=3 uid="uid://cvgm2xmd0g73f"]
 
 [ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_1gwro"]
 [ext_resource type="Script" path="res://scenes/turret.gd" id="1_eyg3j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyo5q"]
-radius = 6.0
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4ajl"]
+radius = 5.0
 height = 24.0
 
 [node name="Turret" type="StaticBody2D"]
+collision_layer = 8
 script = ExtResource("1_eyg3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,7 +22,7 @@ region_enabled = true
 region_rect = Rect2(134, 233, 20, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_hyo5q")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -25,3 +30,13 @@ position = Vector2(8, -15)
 
 [node name="LaserTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_f4ajl")
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

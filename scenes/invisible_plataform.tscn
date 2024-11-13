@@ -7,7 +7,7 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_745i5"]
-size = Vector2(36, 34)
+size = Vector2(56, 52)
 
 [node name="InvisiblePlataform" type="StaticBody2D"]
 collision_layer = 2
