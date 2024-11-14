@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://be8g8guqca4ik"]
 
-[ext_resource type="Script" path="res://scenes/bug.gd" id="1_hulps"]
+[ext_resource type="Script" path="res://scripts/bug.gd" id="1_ybypm"]
 [ext_resource type="Texture2D" uid="uid://chq5x443f7hf2" path="res://images/bug.png" id="2_h2evk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4xt3"]
@@ -200,7 +200,7 @@ height = 26.0
 rotates = false
 cubic_interp = false
 loop = false
-script = ExtResource("1_hulps")
+script = ExtResource("1_ybypm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -16)

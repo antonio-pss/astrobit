@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://by8exc7d4k5w8"]
+
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_05vfn"]
+[ext_resource type="Script" path="res://scenes/minion.gd" id="1_44bo2"]
+
+[node name="Minion" type="Node2D"]
+script = ExtResource("1_44bo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_05vfn")
+region_enabled = true
+region_rect = Rect2(137.983, 232.865, 14.0167, 11.0032)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(7, -4)

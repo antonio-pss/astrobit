@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddp4xqal5xv28"]
 
-[ext_resource type="Script" path="res://scenes/jump_station.gd" id="1_g52ku"]
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_q0147"]
+[ext_resource type="Script" path="res://scripts/jump_station.gd" id="1_ok1ha"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_q0147"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sfyc"]
 size = Vector2(32, 14)
@@ -9,7 +9,7 @@ size = Vector2(32, 14)
 [node name="JumpStation" type="StaticBody2D"]
 position = Vector2(0, -7)
 collision_layer = 4
-script = ExtResource("1_g52ku")
+script = ExtResource("1_ok1ha")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q0147")

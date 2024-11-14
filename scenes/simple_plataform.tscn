@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnb1x0q1154m0"]
 
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_6dt2i"]
-[ext_resource type="Script" path="res://scenes/plataform.gd" id="1_dgcgd"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_6dt2i"]
+[ext_resource type="Script" path="res://scripts/plataform.gd" id="1_pldr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stm2s"]
 size = Vector2(32, 32)
@@ -11,7 +11,7 @@ position = Vector2(0, -1)
 rotates = false
 cubic_interp = false
 loop = false
-script = ExtResource("1_dgcgd")
+script = ExtResource("1_pldr4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6dt2i")

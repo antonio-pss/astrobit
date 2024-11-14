@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var marker: Marker2D = $Marker2D
 @onready var timer: Timer = $LaserTimer
 
+
 var laser_scene: PackedScene = preload("res://scenes/laser.tscn")
 var can_laser: bool = true
 

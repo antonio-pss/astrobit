@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0p7g631v458x"]
 
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_ipqgn"]
-[ext_resource type="Script" path="res://scenes/falling_spike.gd" id="1_uu7f4"]
+[ext_resource type="Script" path="res://scripts/falling_spike.gd" id="1_ifyqf"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_ipqgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85xnm"]
 size = Vector2(26, 8)
@@ -11,7 +11,7 @@ size = Vector2(38, 225)
 
 [node name="FallingSpike" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_uu7f4")
+script = ExtResource("1_ifyqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4)

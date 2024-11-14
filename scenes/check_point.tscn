@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgdowdp0lrp14"]
 
-[ext_resource type="Script" path="res://scenes/check_point.gd" id="1_tyhuv"]
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="2_af660"]
+[ext_resource type="Script" path="res://scripts/check_point.gd" id="1_7clxv"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_af660"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgxmb"]
 atlas = ExtResource("2_af660")
@@ -22,7 +22,7 @@ animations = [{
 size = Vector2(40, 85)
 
 [node name="CheckPoint" type="Area2D"]
-script = ExtResource("1_tyhuv")
+script = ExtResource("1_7clxv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)

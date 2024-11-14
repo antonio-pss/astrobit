@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba3gtgp6yghn8"]
 
-[ext_resource type="Script" path="res://scenes/invisible_plataform.gd" id="1_usxed"]
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_xnw24"]
+[ext_resource type="Script" path="res://scripts/invisible_plataform.gd" id="1_petc2"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_xnw24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyxg3"]
 size = Vector2(32, 32)
@@ -11,7 +11,7 @@ size = Vector2(56, 52)
 
 [node name="InvisiblePlataform" type="StaticBody2D"]
 collision_layer = 2
-script = ExtResource("1_usxed")
+script = ExtResource("1_petc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

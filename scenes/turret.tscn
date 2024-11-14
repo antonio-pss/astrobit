@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvgm2xmd0g73f"]
+[gd_scene load_steps=5 format=3 uid="uid://dm1x0dfjfphrf"]
 
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="1_1gwro"]
-[ext_resource type="Script" path="res://scenes/turret.gd" id="1_eyg3j"]
+[ext_resource type="Script" path="res://scripts/turret.gd" id="1_u0toy"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_48tds"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyo5q"]
 radius = 7.0
@@ -13,11 +13,11 @@ height = 24.0
 
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 8
-script = ExtResource("1_eyg3j")
+script = ExtResource("1_u0toy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
-texture = ExtResource("1_1gwro")
+texture = ExtResource("2_48tds")
 region_enabled = true
 region_rect = Rect2(134, 233, 20, 23)
 
@@ -29,6 +29,7 @@ shape = SubResource("CapsuleShape2D_hyo5q")
 position = Vector2(8, -15)
 
 [node name="LaserTimer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [node name="HitBox" type="Area2D" parent="."]

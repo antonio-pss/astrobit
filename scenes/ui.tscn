@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo75ksavjug0x"]
 
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_hxtbb"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_qb4t8"]
 [ext_resource type="Texture2D" uid="uid://dqg4tcnktg5aa" path="res://images/coin.png" id="2_qxycc"]
 
 [node name="UI" type="CanvasLayer"]
-script = ExtResource("1_hxtbb")
+script = ExtResource("1_qb4t8")
 
 [node name="Life" type="MarginContainer" parent="."]
 offset_right = 40.0

@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cicnxc4545s44"]
+[gd_scene load_steps=3 format=3 uid="uid://cicnxc4545s44"]
 
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_birr5"]
-[ext_resource type="Texture2D" uid="uid://dyt11qpghqb0i" path="res://images/logo.png" id="1_lipw3"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vvrl5"]
 [ext_resource type="Texture2D" uid="uid://cpo3dno7fm3pa" path="res://images/buttons/0.png" id="2_waaxv"]
 
-[node name="PauseMenu" type="ColorRect"]
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_vvrl5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.196078)
-script = ExtResource("1_birr5")
+color = Color(0, 0, 0, 0.392157)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -27,11 +29,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_lipw3")
-
-[node name="Resume" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+[node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
@@ -40,7 +38,7 @@ icon = ExtResource("2_waaxv")
 flat = true
 icon_alignment = 1
 
-[node name="Reiniciar" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+[node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
@@ -49,7 +47,7 @@ icon = ExtResource("2_waaxv")
 flat = true
 icon_alignment = 1
 
-[node name="Quit" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
@@ -59,3 +57,11 @@ flat = true
 icon_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Resume" to="." method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
