@@ -1,0 +1,208 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbhn8t7xjo0wt"]
+
+[ext_resource type="Script" path="res://scenes/phases_menu.gd" id="1_38yhb"]
+[ext_resource type="Texture2D" uid="uid://ddllxd4kyb810" path="res://images/space-background/Space Background (1).png" id="1_t42bt"]
+[ext_resource type="Texture2D" uid="uid://bcskstx83oajp" path="res://images/icon.png" id="2_7j5he"]
+[ext_resource type="Texture2D" uid="uid://bnnde3qy5qwfj" path="res://images/btn_large/0.png" id="3_3l474"]
+[ext_resource type="Texture2D" uid="uid://gvo3mki777pl" path="res://images/btn_large/1.png" id="4_rfq0h"]
+[ext_resource type="Texture2D" uid="uid://cjkk5unrijuq1" path="res://images/Tela Astro.png" id="5_l24ic"]
+
+[node name="PhasesMenu" type="CanvasLayer"]
+script = ExtResource("1_38yhb")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t42bt")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_right = 210.0
+offset_bottom = 572.0
+grow_horizontal = 2
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_7j5he")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Phases" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Tutorial" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
+layout_mode = 2
+texture_normal = ExtResource("3_3l474")
+texture_pressed = ExtResource("4_rfq0h")
+texture_hover = ExtResource("4_rfq0h")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Tutorial
+"
+horizontal_alignment = 1
+
+[node name="Phase1" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
+layout_mode = 2
+texture_normal = ExtResource("3_3l474")
+texture_pressed = ExtResource("4_rfq0h")
+texture_hover = ExtResource("4_rfq0h")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Fase 1"
+horizontal_alignment = 1
+
+[node name="Phase2" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
+layout_mode = 2
+texture_normal = ExtResource("3_3l474")
+texture_pressed = ExtResource("4_rfq0h")
+texture_hover = ExtResource("4_rfq0h")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Fase 2
+"
+horizontal_alignment = 1
+
+[node name="Phase3" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
+layout_mode = 2
+texture_normal = ExtResource("3_3l474")
+texture_pressed = ExtResource("4_rfq0h")
+texture_hover = ExtResource("4_rfq0h")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Fase 3
+"
+horizontal_alignment = 1
+
+[node name="Phase4" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
+layout_mode = 2
+texture_normal = ExtResource("3_3l474")
+texture_pressed = ExtResource("4_rfq0h")
+texture_hover = ExtResource("4_rfq0h")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Fase 4
+"
+horizontal_alignment = 1
+
+[node name="Display" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_l24ic")
+expand_mode = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Display"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.033
+anchor_right = 1.0
+anchor_bottom = 0.100738
+offset_left = 235.5
+offset_top = -0.0880032
+offset_right = -231.833
+offset_bottom = 0.151999
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="VBoxContainer/HBoxContainer/Display"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.167
+anchor_right = 0.989326
+anchor_bottom = 0.863
+offset_left = 19.0
+offset_top = -0.112003
+offset_right = 4.04266
+offset_bottom = 0.0319824
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+autowrap_mode = 3
+clip_text = true
+text_direction = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase1" to="." method="_on_phase_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase2" to="." method="_on_phase_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase3" to="." method="_on_phase_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase4" to="." method="_on_phase_pressed"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cicnxc4545s44"]
+[gd_scene load_steps=4 format=3 uid="uid://cicnxc4545s44"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vvrl5"]
 [ext_resource type="Texture2D" uid="uid://cpo3dno7fm3pa" path="res://images/buttons/0.png" id="2_waaxv"]
+[ext_resource type="Texture2D" uid="uid://bsxa7nmr7hvye" path="res://images/buttons/1.png" id="3_shmu2"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_vvrl5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -29,39 +29,88 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 26
-text = "Retomar"
-icon = ExtResource("2_waaxv")
-flat = true
-icon_alignment = 1
+focus_mode = 0
+texture_normal = ExtResource("2_waaxv")
+texture_pressed = ExtResource("3_shmu2")
+texture_hover = ExtResource("3_shmu2")
+texture_disabled = ExtResource("2_waaxv")
+texture_focused = ExtResource("3_shmu2")
 
-[node name="Restart" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Retomar
+"
+horizontal_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("2_waaxv")
+texture_pressed = ExtResource("3_shmu2")
+texture_hover = ExtResource("3_shmu2")
+texture_disabled = ExtResource("2_waaxv")
+texture_focused = ExtResource("3_shmu2")
+
+[node name="Label" type="Label" parent="VBoxContainer/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 text = "Reiniciar"
-icon = ExtResource("2_waaxv")
-flat = true
-icon_alignment = 1
+horizontal_alignment = 1
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("2_waaxv")
+texture_pressed = ExtResource("3_shmu2")
+texture_hover = ExtResource("3_shmu2")
+texture_disabled = ExtResource("2_waaxv")
+texture_focused = ExtResource("3_shmu2")
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 text = "Sair"
-icon = ExtResource("2_waaxv")
-flat = true
-icon_alignment = 1
+horizontal_alignment = 1
 
-[connection signal="mouse_entered" from="VBoxContainer/Resume" to="." method="_on_resume_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Resume" to="." method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

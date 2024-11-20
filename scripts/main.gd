@@ -4,6 +4,7 @@ extends Node2D
 @onready var initial_spawn: Marker2D = $Objects/Checkpoints/InitialSpawn
 
 func _ready() -> void:
+	UI.show()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Globals.spawnpoint = initial_spawn.global_position
 	
