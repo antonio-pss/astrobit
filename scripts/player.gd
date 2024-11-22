@@ -4,6 +4,7 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $Bit
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
+@export var start_speed = 200.0
 @export var speed = 200.0
 @export var jump_height = -400.0
 

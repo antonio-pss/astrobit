@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bkyh4ymwe0jqd"]
+[gd_scene load_steps=24 format=4 uid="uid://bkyh4ymwe0jqd"]
 
 [ext_resource type="PackedScene" uid="uid://c2gxdinly830n" path="res://scenes/player.tscn" id="1_ht5ux"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wlfwk"]
@@ -53,6 +53,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -153, -93, 0, 0, 0, 0, 5, -13)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doqrb"]
+size = Vector2(31, 97)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_wlfwk")
@@ -181,7 +184,7 @@ position = Vector2(1616, -209)
 [node name="Checkpoints" type="Node" parent="Objects"]
 
 [node name="InitialSpawn" type="Marker2D" parent="Objects/Checkpoints"]
-position = Vector2(98, -26)
+position = Vector2(-737, -127)
 
 [node name="CheckPoint" parent="Objects/Checkpoints" instance=ExtResource("6_2imf3")]
 position = Vector2(1116, -160)
@@ -217,5 +220,14 @@ rotation = 0.468288
 [node name="Turret" parent="Enemies/Turrets" instance=ExtResource("14_5f1cu")]
 position = Vector2(2453, -257)
 scale = Vector2(-1, 1)
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Dialogue"]
+position = Vector2(-449, -117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/Area2D"]
+position = Vector2(16.5, -27)
+shape = SubResource("RectangleShape2D_doqrb")
 
 [connection signal="body_entered" from="Boundery/Bottom" to="." method="_on_bottom_body_entered"]

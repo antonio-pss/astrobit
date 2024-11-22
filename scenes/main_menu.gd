@@ -5,6 +5,7 @@ var btn_normal = load("res://images/buttons/0.png")
 
 func _ready() -> void:
 	UI.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_play_pressed() -> void:
