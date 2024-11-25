@@ -22,7 +22,10 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if sprite.animation == "death":
+	if sprite.animation == 'death':
+		sprite.play('explosion')
+		sprite.scale = Vector2(0.3, 0.3)
+	elif sprite.animation == "explosion":
 		queue_free()
 
 

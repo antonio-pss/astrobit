@@ -1,19 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://by8exc7d4k5w8"]
 
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_05vfn"]
-[ext_resource type="Script" path="res://scenes/minion.gd" id="1_44bo2"]
+[ext_resource type="Script" path="res://scripts/minion.gd" id="1_puwa2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysxpc"]
 
 [node name="Minion" type="PathFollow2D"]
 rotates = false
 cubic_interp = false
 loop = false
-script = ExtResource("1_44bo2")
+script = ExtResource("1_puwa2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("1_05vfn")
-region_enabled = true
-region_rect = Rect2(137.983, 232.865, 14.0167, 11.0032)
+sprite_frames = SubResource("SpriteFrames_ysxpc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(7, -4)

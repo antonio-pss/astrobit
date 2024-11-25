@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var marker: Marker2D = $Marker2D
 @onready var timer: Timer = $LaserTimer
 
@@ -26,4 +26,5 @@ func _on_laser_timer_timeout() -> void:
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:
 	can_laser = false
+	$AnimatedSprite2D.play("correct")
 	timer.stop()
