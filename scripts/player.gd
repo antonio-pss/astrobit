@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	animation()		
 	move_and_slide()
+	Globals.player_pos = global_position
 
 func animation():
 	if velocity.y != 0:

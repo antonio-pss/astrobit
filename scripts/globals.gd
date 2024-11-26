@@ -5,7 +5,9 @@ var player_health = 5:
 		player_health = value
 		UI.update_life()
 		UI.add_life()
-		
+
+var player_pos: Vector2
+
 var current_level: PackedScene
 
 var spawnpoint: Vector2
@@ -15,8 +17,9 @@ var score: int:
 		score = value
 		UI.update_score()
 
-
 var paused: bool = false
+
+
 
 func resume():
 	paused = !paused
@@ -27,7 +30,6 @@ func resume():
 		get_tree().paused = false
 		PauseMenu.hide()
 	
-
 func restart():
 	score = 0
 	get_tree().reload_current_scene()
