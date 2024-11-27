@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://be8g8guqca4ik"]
+[gd_scene load_steps=72 format=3 uid="uid://be8g8guqca4ik"]
 
 [ext_resource type="Script" path="res://scripts/bug.gd" id="1_ybypm"]
 [ext_resource type="Texture2D" uid="uid://chq5x443f7hf2" path="res://images/bug.png" id="2_h2evk"]
@@ -484,16 +484,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stwkk"]
-radius = 11.0
-height = 26.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ai33r"]
-radius = 9.0
-height = 22.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agrtm"]
-radius = 13.0
+radius = 11.0
 height = 26.0
 
 [node name="Bug" type="PathFollow2D"]
@@ -503,33 +495,17 @@ loop = false
 script = ExtResource("1_ybypm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -16)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_qgsb5")
 animation = &"walk"
 autoplay = "walk"
-flip_h = true
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-2, -13)
-shape = SubResource("CapsuleShape2D_stwkk")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-2, -17)
+position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_ai33r")
-
-[node name="DamageBox" type="Area2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-2, -13)
-shape = SubResource("CapsuleShape2D_agrtm")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]

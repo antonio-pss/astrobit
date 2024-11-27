@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	if 	progress_ratio == 1:
 		sprite.flip_h = true
 		speed *= -1
-	elif progress_ratio == 0:
+	elif progress_ratio == 0: 
 		sprite.flip_h = false
 		speed *= -1
 

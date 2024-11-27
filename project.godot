@@ -19,7 +19,6 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 Globals="*res://scripts/globals.gd"
 UI="*res://scenes/ui.tscn"
 PauseMenu="*res://scenes/pause_menu.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -27,7 +26,7 @@ window/size/mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

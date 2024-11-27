@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var btn_focus = load("res://images/buttons/1.png")
-var btn_normal = load("res://images/buttons/0.png")
+var btn_focus = load("res://images/buttons/medium_hover.png")
+var btn_normal = load("res://images/buttons/medium_normal.png")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

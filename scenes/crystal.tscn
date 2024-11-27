@@ -245,17 +245,19 @@ radius = 104.005
 [node name="Crystal" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_gjdi8")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2ea6")
-animation = &"attack"
-flip_h = true
+animation = &"walk"
+frame_progress = 0.967336
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-14, -7, -12, -11, -12, -16, 1, -27, 5, -27, 7, -19, 8, -12, 14, -3, 8, 17, 1, 27, -2, 27, -14, 7)
 
 [node name="NoticeArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]

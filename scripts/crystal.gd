@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision: CollisionPolygon2D = $CollisionPolygon2D
 
 var active: bool = false
 var speed: int = 100
@@ -15,16 +16,25 @@ func hit():
 		$HitTimer.start()
 		health -= 10
 	if health <= 0:
-		await sprite.play("death")
+		sprite.play("death")
 		queue_free()
 		
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction = (Globals.player_pos - position).normalized()
 	velocity = direction * speed
 	if active:
+		turn(direction.x)
 		move_and_slide()
-		look_at(Globals.player_pos)
+		
+
+func turn(direction) -> void:
+	if direction > 0:
+		sprite.scale.x = -1
+		collision.scale.x = -1
+	if direction < 0:
+		sprite.scale.x = 1
+		collision.scale.x = 1
 
 func _on_notice_area_2d_body_entered(_body: Node2D) -> void:
 	active = true
@@ -37,7 +47,7 @@ func _on_notice_area_2d_body_exited(_body: Node2D) -> void:
 
 func _on_atack_area_2d_body_entered(_body: Node2D) -> void:
 	player_near = true
-	$AnimatedSprite2D.play("atack")
+	$AnimatedSprite2D.play("attack")
 
 
 func _on_atack_area_2d_body_exited(_body: Node2D) -> void:
