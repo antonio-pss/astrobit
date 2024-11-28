@@ -102,8 +102,3 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -12)
 shape = SubResource("CapsuleShape2D_2g0vu")
-
-[node name="HitTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

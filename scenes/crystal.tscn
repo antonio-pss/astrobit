@@ -242,15 +242,13 @@ radius = 286.016
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3hiv"]
 radius = 104.005
 
-[node name="Crystal" type="CharacterBody2D"]
+[node name="Crystal" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_gjdi8")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2ea6")
-animation = &"walk"
-frame_progress = 0.967336
+animation = &"attack"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -273,6 +271,7 @@ shape = SubResource("CircleShape2D_c3hiv")
 
 [node name="HitTimer" type="Timer" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_2d_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_2d_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_atack_area_2d_body_entered"]

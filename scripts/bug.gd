@@ -15,10 +15,14 @@ func _process(delta: float) -> void:
 		speed *= -1
 
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	body.velocity.y = -300
-	sprite.play('death')
-	speed = 0
+func _on_hit_box_body_entered(body: CharacterBody2D) -> void:
+	if body.global_position.y < global_position.y - 10 and not sprite.animation == "explosion":
+		body.velocity.y = -300
+		speed = 0
+		if sprite.animation != "death":
+			sprite.play('death')
+	else:
+		body.hit()
 	
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -27,7 +31,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		sprite.scale = Vector2(0.3, 0.3)
 	elif sprite.animation == "explosion":
 		queue_free()
-
-
-func _on_damage_box_body_entered(body: Node2D) -> void:
-	body.hit()
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bkyh4ymwe0jqd"]
+[gd_scene load_steps=25 format=4 uid="uid://bkyh4ymwe0jqd"]
 
 [ext_resource type="PackedScene" uid="uid://c2gxdinly830n" path="res://scenes/player.tscn" id="1_ht5ux"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wlfwk"]
@@ -17,12 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dju477sxbis1o" path="res://scenes/plataform.tscn" id="13_hbdid"]
 [ext_resource type="PackedScene" uid="uid://dm1x0dfjfphrf" path="res://scenes/turret.tscn" id="14_5f1cu"]
 [ext_resource type="PackedScene" uid="uid://2cxgj7djaank" path="res://scenes/crystal.tscn" id="15_rj18f"]
-
-[sub_resource type="Curve2D" id="Curve2D_fc656"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -25, -50, 0, 0, 0, 0, 25, -50)
-}
-point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3k773"]
 
@@ -62,27 +56,17 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_txn5r"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -153, -93, 0, 0, 0, 0, 5, -13)
-}
-point_count = 2
-
 [node name="Level" type="Node2D"]
 position = Vector2(552, -69)
 script = ExtResource("1_wlfwk")
 
 [node name="Player" parent="." instance=ExtResource("1_ht5ux")]
-position = Vector2(-1208, -54)
+position = Vector2(2414, -432)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-
-[node name="Path2D" type="Path2D" parent="Player"]
-position = Vector2(-1, 7)
-curve = SubResource("Curve2D_fc656")
 
 [node name="Map" type="Node" parent="."]
 
@@ -97,6 +81,7 @@ frame_progress = 0.263703
 [node name="Space" type="Sprite2D" parent="Map"]
 z_index = -1
 texture_repeat = 3
+position = Vector2(2809, 0)
 texture = ExtResource("4_wdfbl")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 5000)
@@ -252,14 +237,6 @@ curve = SubResource("Curve2D_i3hxy")
 
 [node name="Bug" parent="Enemies/Bugs/Path2D2" instance=ExtResource("6_qcubp")]
 position = Vector2(63, 0)
-
-[node name="Path2D3" type="Path2D" parent="Enemies/Bugs"]
-position = Vector2(11, 5)
-curve = SubResource("Curve2D_txn5r")
-
-[node name="Bug" parent="Enemies/Bugs/Path2D3" instance=ExtResource("6_qcubp")]
-position = Vector2(-153, -93)
-rotation = 0.468288
 
 [node name="Turrets" type="Node" parent="Enemies"]
 

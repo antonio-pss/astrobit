@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionPolygon2D = $CollisionPolygon2D
@@ -20,13 +20,11 @@ func hit():
 		queue_free()
 		
 
-func _process(_delta: float) -> void:
-	var direction = (Globals.player_pos - position).normalized()
-	velocity = direction * speed
+func _process(delta: float) -> void:
 	if active:
+		var direction = (Globals.player_pos - position).normalized()
+		position += direction * speed * delta
 		turn(direction.x)
-		move_and_slide()
-		
 
 func turn(direction) -> void:
 	if direction > 0:
@@ -66,3 +64,7 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_hit_timer_timeout() -> void:
 	vulnerable = true
+
+
+func _on_body_entered(body: Node2D) -> void:
+	body.hit()
