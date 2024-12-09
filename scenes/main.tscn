@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c2gxdinly830n" path="res://scenes/player.tscn" id="1_ht5ux"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wlfwk"]
+[ext_resource type="PackedScene" uid="uid://by8exc7d4k5w8" path="res://scenes/minion.tscn" id="3_q63rx"]
 [ext_resource type="PackedScene" uid="uid://ddp4xqal5xv28" path="res://scenes/jump_station.tscn" id="3_rq2l1"]
 [ext_resource type="TileSet" uid="uid://bgykvojkga4uf" path="res://scenes/main-tile.tres" id="3_y7gqq"]
 [ext_resource type="PackedScene" uid="uid://ohya14ox2850" path="res://scenes/spike.tscn" id="4_jnpa6"]
 [ext_resource type="Texture2D" uid="uid://ddllxd4kyb810" path="res://images/space-background/Space Background (1).png" id="4_wdfbl"]
-[ext_resource type="PackedScene" uid="uid://jc4pkey3hvmt" path="res://scenes/planet.tscn" id="5_sggk2"]
+[ext_resource type="PackedScene" path="res://scenes/planet.tscn" id="5_sggk2"]
+[ext_resource type="PackedScene" uid="uid://bhocu7nyypbte" path="res://scenes/black_hole.tscn" id="5_ti4xt"]
 [ext_resource type="PackedScene" uid="uid://bgdowdp0lrp14" path="res://scenes/check_point.tscn" id="6_2imf3"]
 [ext_resource type="PackedScene" uid="uid://be8g8guqca4ik" path="res://scenes/bug.tscn" id="6_qcubp"]
 [ext_resource type="PackedScene" uid="uid://cm28qkrjlt4tq" path="res://scenes/coin.tscn" id="8_0yjb7"]
@@ -16,7 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://dnb1x0q1154m0" path="res://scenes/simple_plataform.tscn" id="12_77bjx"]
 [ext_resource type="PackedScene" uid="uid://dju477sxbis1o" path="res://scenes/plataform.tscn" id="13_hbdid"]
 [ext_resource type="PackedScene" uid="uid://dm1x0dfjfphrf" path="res://scenes/turret.tscn" id="14_5f1cu"]
-[ext_resource type="PackedScene" uid="uid://2cxgj7djaank" path="res://scenes/crystal.tscn" id="15_rj18f"]
+[ext_resource type="PackedScene" uid="uid://baxfqhqns1pg1" path="res://scenes/crystal.tscn" id="15_rj18f"]
+
+[sub_resource type="Curve2D" id="Curve2D_yx351"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -35, -45, 0, 0, 0, 0, 25, -45)
+}
+point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3k773"]
 
@@ -56,42 +64,29 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Animation" id="Animation_w5m6y"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_18tk2"]
-resource_name = "planets"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_smx47"]
-_data = {
-"RESET": SubResource("Animation_w5m6y"),
-"planets": SubResource("Animation_18tk2")
-}
-
 [node name="Level" type="Node2D"]
 position = Vector2(552, -69)
 script = ExtResource("1_wlfwk")
 
 [node name="Player" parent="." instance=ExtResource("1_ht5ux")]
-position = Vector2(3825, -501)
+position = Vector2(2400, -429)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(4, 6)
+curve = SubResource("Curve2D_yx351")
+
+[node name="Minion" parent="Player/Path2D" instance=ExtResource("3_q63rx")]
+unique_name_in_owner = true
+position = Vector2(-35, -45)
+
 [node name="Map" type="Node" parent="."]
 
 [node name="Planets" type="Node" parent="Map"]
-
-[node name="Planet3" parent="Map/Planets" instance=ExtResource("5_sggk2")]
-modulate = Color(0.427451, 0, 0.231373, 1)
-position = Vector2(4670, -565)
-scale = Vector2(5, 5)
-animation = &"galaxy"
-autoplay = "galaxy"
-frame_progress = 0.0460273
-speed_scale = 2.0
 
 [node name="Planet" parent="Map/Planets" instance=ExtResource("5_sggk2")]
 position = Vector2(-374, -276)
@@ -99,6 +94,10 @@ scale = Vector2(0.5, 0.5)
 autoplay = "earth"
 frame_progress = 0.399131
 speed_scale = 2.0
+
+[node name="BlackHole" parent="Map/Planets" instance=ExtResource("5_ti4xt")]
+position = Vector2(4631, -553)
+scale = Vector2(5, 5)
 
 [node name="Space" type="Sprite2D" parent="Map"]
 z_index = -1
@@ -270,10 +269,5 @@ scale = Vector2(-1, 1)
 
 [node name="Crystal" parent="Enemies/Crystal" instance=ExtResource("15_rj18f")]
 position = Vector2(3282, -460)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_smx47")
-}
 
 [connection signal="body_entered" from="Boundery/Bottom" to="." method="_on_bottom_body_entered"]

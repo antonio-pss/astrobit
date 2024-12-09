@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjkk5unrijuq1"
-path="res://.godot/imported/Tela Astro.png-a4f55e7de5a8e114cf558a9ce33d5293.ctex"
+uid="uid://c50p8xmkrqk6a"
+path="res://.godot/imported/medium_hover.png-fb6d8b19f1d184d6856715dc415e5f94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Tela Astro.png"
-dest_files=["res://.godot/imported/Tela Astro.png-a4f55e7de5a8e114cf558a9ce33d5293.ctex"]
+source_file="res://images/medium_hover.png"
+dest_files=["res://.godot/imported/medium_hover.png-fb6d8b19f1d184d6856715dc415e5f94.ctex"]
 
 [params]
 

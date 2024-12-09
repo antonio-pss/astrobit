@@ -13,8 +13,7 @@ func _process(_delta: float) -> void:
 	if can_laser:
 		var laser = laser_scene.instantiate() as Area2D
 		laser.position = marker.global_position
-		laser.direction = self.scale.x
-		laser.scale.x = self.scale.x
+		laser.direction = Vector2(scale.x, 0)
 		get_parent().add_child(laser)
 		can_laser = false
 		timer.start()

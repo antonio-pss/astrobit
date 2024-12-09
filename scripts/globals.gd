@@ -8,9 +8,9 @@ var player_health = 5:
 
 var player_pos: Vector2
 
-var current_level: PackedScene
-
 var spawnpoint: Vector2
+
+var enemy_focus: Area2D
 
 var score: int:
 	set(value):
@@ -32,6 +32,7 @@ func resume():
 	
 func restart():
 	score = 0
+	player_health = 5
 	get_tree().reload_current_scene()
 	
 func quit():

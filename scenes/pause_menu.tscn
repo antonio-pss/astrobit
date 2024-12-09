@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cicnxc4545s44"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vvrl5"]
-[ext_resource type="Texture2D" uid="uid://bl46qvl8mgic4" path="res://images/buttons/large_normal.png" id="2_waaxv"]
-[ext_resource type="Texture2D" uid="uid://d378d65iptx1k" path="res://images/buttons/large_hover.png" id="3_shmu2"]
+[ext_resource type="Texture2D" uid="uid://crh3uj6gg1mqh" path="res://images/medium_normal.png" id="2_30l5s"]
+[ext_resource type="Texture2D" uid="uid://c50p8xmkrqk6a" path="res://images/medium_hover.png" id="3_ffk2c"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -34,11 +34,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Resume"]
 layout_mode = 1
@@ -62,11 +59,8 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Restart"]
 layout_mode = 1
@@ -89,11 +83,8 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Quit"]
 layout_mode = 1

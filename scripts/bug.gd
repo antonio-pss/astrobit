@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_hit_box_body_entered(body: CharacterBody2D) -> void:
-	if body.global_position.y < global_position.y - 10 and not sprite.animation == "explosion":
+	if body.velocity.y > 0 and not sprite.animation == "explosion":
 		body.velocity.y = -300
 		speed = 0
 		if sprite.animation != "death":
