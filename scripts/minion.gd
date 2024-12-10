@@ -2,6 +2,7 @@ extends PathFollow2D
 
 @onready var marker: Marker2D = $Marker2D
 @onready var timer: Timer = $LaserTimer
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 signal laser(pos)
 
@@ -13,13 +14,10 @@ var speed: int = 150
 
 func _process(delta: float) -> void:
 	
-	$AnimatedSprite2D.look_at(get_global_mouse_position())
 	progress += speed * delta
 	if Input.is_action_just_pressed('primary') and can_laser and enemy_nearby:
-		var laser = laser_scene.instantiate() as Area2D
-		laser.position = marker.global_position
-		laser.direction = Vector2.LEFT
-		get_parent().add_child(laser)
+		laser.emit(marker.global_position)
+		sprite.animation = "shoot"
 		can_laser = false
 		timer.start()
 	if Input.is_action_just_pressed("left"):
@@ -37,7 +35,9 @@ func _on_laser_timer_timeout() -> void:
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	enemy_nearby = true
 	Globals.enemy_focus = area
+	sprite.animation = "danger"
 	
 func _on_attack_area_area_exited(_area: Area2D) -> void:
 	enemy_nearby = false
 	Globals.enemy_focus = null
+	sprite.animation = "walk"

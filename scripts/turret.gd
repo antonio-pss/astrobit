@@ -6,7 +6,7 @@ extends StaticBody2D
 
 
 var laser_scene: PackedScene = preload("res://scenes/laser.tscn")
-var can_laser: bool = true
+var can_laser: bool = false
 
 
 func _process(_delta: float) -> void:

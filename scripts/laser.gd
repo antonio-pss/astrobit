@@ -10,6 +10,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += speed * delta * direction
 	
+	
 func _on_body_entered(body: Node2D) -> void:
 	body.hit()
 	queue_free()

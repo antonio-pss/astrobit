@@ -113,7 +113,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -146,13 +146,10 @@ script = ExtResource("1_puwa2")
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ysxpc")
-animation = &"walk"
+animation = &"shoot"
 autoplay = "walk"
-frame_progress = 0.19041
+frame_progress = 0.090874
 flip_h = true
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(6, 0)
 
 [node name="LaserTimer" type="Timer" parent="."]
 
@@ -161,7 +158,11 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 shape = SubResource("CircleShape2D_pejlh")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(6, 0)
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

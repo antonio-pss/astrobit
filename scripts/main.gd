@@ -16,10 +16,8 @@ func _on_bottom_body_entered(_body: Node2D) -> void:
 	player.global_position = Globals.spawnpoint
 	
 
-func create_laser(pos, global_pos):
+func create_laser(pos):
 	var laser = laser_scene.instantiate() as Area2D
-	laser.position = global_pos	
-	var direction = (Globals.enemy_focus.global_position - pos).normalized()
-	laser.direction = direction
-	
+	laser.position = pos
+	laser.direction = Vector2(Globals.enemy_focus.global_position - pos).normalized()
 	add_child(laser)
