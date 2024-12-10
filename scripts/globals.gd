@@ -35,5 +35,10 @@ func restart():
 	player_health = 5
 	get_tree().reload_current_scene()
 	
+	
+func login():
+	PauseMenu.hide()
+	LoginMenu.show()
+
 func quit():
 	get_tree().quit()

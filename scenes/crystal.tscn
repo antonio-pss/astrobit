@@ -251,18 +251,15 @@ sprite_frames = SubResource("SpriteFrames_d2ea6")
 animation = &"attack"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-14, -7, -12, -11, -12, -16, 1, -27, 5, -27, 7, -19, 8, -12, 14, -3, 8, 17, 1, 27, -2, 27, -14, 7)
 
 [node name="NoticeArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_518bc")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_c3hiv")
@@ -272,6 +269,7 @@ shape = SubResource("CircleShape2D_c3hiv")
 [node name="HitTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_2d_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_2d_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_atack_area_2d_body_entered"]

@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	progress += speed * delta
 	if Input.is_action_just_pressed('primary') and can_laser and enemy_nearby:
 		laser.emit(marker.global_position)
-		sprite.animation = "shoot"
+		sprite.play("shoot")
 		can_laser = false
 		timer.start()
 	if Input.is_action_just_pressed("left"):
@@ -41,3 +41,8 @@ func _on_attack_area_area_exited(_area: Area2D) -> void:
 	enemy_nearby = false
 	Globals.enemy_focus = null
 	sprite.animation = "walk"
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "shoot":
+		sprite.play("danger")

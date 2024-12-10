@@ -68,7 +68,7 @@ script = ExtResource("1_wlfwk")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_ht5ux")]
-position = Vector2(4372, -565)
+position = Vector2(2448, -313)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

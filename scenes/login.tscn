@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://huc27ceywndj"]
+
+[ext_resource type="Texture2D" uid="uid://crh3uj6gg1mqh" path="res://images/medium_normal.png" id="1_1hy8e"]
+[ext_resource type="Script" path="res://scripts/login.gd" id="1_qq6co"]
+[ext_resource type="Texture2D" uid="uid://c50p8xmkrqk6a" path="res://images/medium_hover.png" id="2_13jjn"]
+
+[node name="Login" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_qq6co")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LabelNome" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Nome de Usuário"
+
+[node name="Nome" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelSenha" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Senha"
+
+[node name="Senha" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+secret = true
+
+[node name="Entrar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("1_1hy8e")
+texture_hover = ExtResource("2_13jjn")
+
+[node name="Label" type="Label" parent="VBoxContainer/Entrar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Entrar"
+horizontal_alignment = 1
+
+[node name="Voltar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("1_1hy8e")
+texture_hover = ExtResource("2_13jjn")
+
+[node name="Label" type="Label" parent="VBoxContainer/Voltar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Voltar"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Entrar" to="." method="_on_entrar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

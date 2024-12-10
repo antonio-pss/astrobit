@@ -19,3 +19,5 @@ func _on_restart_pressed() -> void:
 func _on_quit_pressed() -> void:
 	Globals.quit()
 	
+func _on_entrar_button_down() -> void:
+	Globals.login()
