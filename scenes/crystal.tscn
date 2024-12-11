@@ -176,9 +176,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ue5nk")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -202,7 +202,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gbgtk")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -242,13 +242,14 @@ radius = 286.016
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3hiv"]
 radius = 104.005
 
-[node name="Crystal" type="Area2D"]
+[node name="Crystal" type="Area2D" groups=["Crystals"]]
 collision_layer = 8
 script = ExtResource("1_gjdi8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2ea6")
-animation = &"attack"
+animation = &"walk"
+autoplay = "walk"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-14, -7, -12, -11, -12, -16, 1, -27, 5, -27, 7, -19, 8, -12, 14, -3, 8, 17, 1, 27, -2, 27, -14, 7)
@@ -260,6 +261,7 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_518bc")
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_c3hiv")
