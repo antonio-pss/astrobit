@@ -88,7 +88,7 @@ position = Vector2(-35, -60)
 [node name="Planets" type="Node" parent="Map"]
 
 [node name="BlackHole" parent="Map/Planets" instance=ExtResource("5_ti4xt")]
-position = Vector2(4675, -554)
+position = Vector2(4788, -599)
 scale = Vector2(5, 5)
 
 [node name="Space" type="Sprite2D" parent="Map"]
