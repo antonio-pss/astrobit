@@ -13,9 +13,8 @@ var speed: int = 150
 
 
 func _process(delta: float) -> void:
-	
 	progress += speed * delta
-	if Input.is_action_just_pressed('primary') and can_laser and enemy_nearby:
+	if Input.is_action_just_pressed('primary') and can_laser and enemy_nearby and visible:
 		laser.emit(marker.global_position)
 		sprite.play("shoot")
 		can_laser = false

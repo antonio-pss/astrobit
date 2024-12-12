@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://baxfqhqns1pg1"]
+[gd_scene load_steps=31 format=3 uid="uid://baxfqhqns1pg1"]
 
 [ext_resource type="Script" path="res://scripts/crystal.gd" id="1_gjdi8"]
 [ext_resource type="Texture2D" uid="uid://cak3fpomuxfss" path="res://images/crystal.png" id="1_nhure"]
@@ -39,29 +39,9 @@ region = Rect2(0, 118, 38, 59)
 atlas = ExtResource("1_nhure")
 region = Rect2(38, 118, 38, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3s1v"]
-atlas = ExtResource("1_nhure")
-region = Rect2(76, 118, 38, 59)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c7w2"]
 atlas = ExtResource("1_nhure")
 region = Rect2(114, 118, 38, 59)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lna8"]
-atlas = ExtResource("1_nhure")
-region = Rect2(152, 118, 38, 59)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by8lr"]
-atlas = ExtResource("1_nhure")
-region = Rect2(190, 118, 38, 59)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kf1v7"]
-atlas = ExtResource("1_nhure")
-region = Rect2(228, 118, 38, 59)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ue5nk"]
-atlas = ExtResource("1_nhure")
-region = Rect2(266, 118, 38, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6upy"]
 atlas = ExtResource("1_nhure")
@@ -159,26 +139,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_wlbon")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y3s1v")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0c7w2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5lna8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_by8lr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kf1v7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ue5nk")
 }],
 "loop": false,
 "name": &"damage",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -242,14 +207,16 @@ radius = 286.016
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3hiv"]
 radius = 104.005
 
-[node name="Crystal" type="Area2D" groups=["Crystals"]]
+[node name="Crystal" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_gjdi8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2ea6")
-animation = &"walk"
+animation = &"damage"
 autoplay = "walk"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-14, -7, -12, -11, -12, -16, 1, -27, 5, -27, 7, -19, 8, -12, 14, -3, 8, 17, 1, 27, -2, 27, -14, 7)

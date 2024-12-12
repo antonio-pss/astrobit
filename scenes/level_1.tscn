@@ -59,6 +59,9 @@ script = ExtResource("2_l7vip")
 [node name="Player" parent="." index="0"]
 position = Vector2(2238, -307)
 
+[node name="Minion" parent="Player/Path2D" index="0"]
+visible = false
+
 [node name="Space" type="Sprite2D" parent="Map" index="1"]
 z_index = -1
 texture_repeat = 3

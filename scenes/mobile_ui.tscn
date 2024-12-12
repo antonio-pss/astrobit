@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxhkwuy4wqtc5"]
+
+[ext_resource type="Script" path="res://scripts/mobile_ui.gd" id="1_dyppr"]
+[ext_resource type="Texture2D" uid="uid://bbri3lmd307w0" path="res://images/previous.png" id="1_g1vka"]
+
+[node name="MobileUI" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_dyppr")
+
+[node name="Movement" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Left" type="Control" parent="Movement"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Left" type="TouchScreenButton" parent="Movement/Left"]
+texture_normal = ExtResource("1_g1vka")
+
+[node name="Right" type="Control" parent="Movement"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Right" type="TouchScreenButton" parent="Movement/Right"]
+position = Vector2(150, 0)
+texture_normal = ExtResource("1_g1vka")
+
+[node name="Abilities" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Shoot" type="Control" parent="Abilities"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Shoot" type="TouchScreenButton" parent="Abilities/Shoot"]
+position = Vector2(-150, 0)
+texture_normal = ExtResource("1_g1vka")
+
+[node name="Jump" type="Control" parent="Abilities"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Jump" type="TouchScreenButton" parent="Abilities/Jump"]
+texture_normal = ExtResource("1_g1vka")
+
+[node name="Menu" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="Menu" type="Control" parent="Menu"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Menu" type="TouchScreenButton" parent="Menu/Menu"]
+position = Vector2(0, 50)
+texture_normal = ExtResource("1_g1vka")
+
+[connection signal="pressed" from="Movement/Left/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Movement/Right/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Abilities/Shoot/Shoot" to="." method="_on_shoot_pressed"]
+[connection signal="pressed" from="Abilities/Jump/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="Menu/Menu/Menu" to="." method="_on_menu_pressed"]
