@@ -39,7 +39,7 @@ radius = 5.0
 height = 24.0
 
 [node name="Turret" type="StaticBody2D"]
-collision_layer = 8
+collision_layer = 4
 script = ExtResource("1_u0toy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -59,7 +59,7 @@ wait_time = 1.5
 autostart = true
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -11)

@@ -23,7 +23,7 @@ func _on_entrar_pressed() -> void:
 	http_request.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 	
 
-func _on_HTTPRequest_request_completed(result, response_code, _headers, body):
+func _on_HTTPRequest_request_completed(_result, response_code, _headers, body):
 	var json_parse = JSON.new()
 
 	if response_code == 200:
@@ -35,12 +35,12 @@ func _on_HTTPRequest_request_completed(result, response_code, _headers, body):
 			
 			if json.has("access"):
 				# Vem do front para ver os mesmos dados.
-				var access_token = json["access"]
+				var _access_token = json["access"]
 			else: 
 				print("A chave 'access' não foi encontrada na resposta JSON.")
 				
 			if json.has("refresh"):
-				var refresh_token = json["refresh"]
+				var _refresh_token = json["refresh"]
 			else: 
 				print("A chave 'refresh' não foi encontrada na resposta JSON.")
 		else:
@@ -100,8 +100,8 @@ func decode_base64(base64_str: String) -> String:
 		var chunk = base64_str.substr(i, 4)
 		var buffer = 0
 		
-		for char in chunk:
-			buffer = (buffer << 6) | BASE64_CHARS.find(char)
+		for charr in chunk:
+			buffer = (buffer << 6) | BASE64_CHARS.find(charr)
 		for j in range(16, -1, -8):
 			result.push_back((buffer >> j) & 0xFF)
 	return result.get_string_from_utf8()

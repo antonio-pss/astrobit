@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkyh4ymwe0jqd"]
+[gd_scene load_steps=7 format=3 uid="uid://bkyh4ymwe0jqd"]
 
 [ext_resource type="PackedScene" uid="uid://c2gxdinly830n" path="res://scenes/player.tscn" id="1_ht5ux"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wlfwk"]
 [ext_resource type="PackedScene" uid="uid://by8exc7d4k5w8" path="res://scenes/minion.tscn" id="3_q63rx"]
+[ext_resource type="Texture2D" uid="uid://ddllxd4kyb810" path="res://images/space-background/Space Background (1).png" id="4_iahso"]
 
 [sub_resource type="Curve2D" id="Curve2D_yx351"]
 _data = {
@@ -11,6 +12,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7vj1v"]
+distance = -46.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_wlfwk")
@@ -35,6 +37,15 @@ position = Vector2(-35, -60)
 [node name="Map" type="Node" parent="."]
 
 [node name="Planets" type="Node" parent="Map"]
+
+[node name="Space" type="Sprite2D" parent="Map"]
+z_index = -1
+texture_repeat = 3
+position = Vector2(2809, 0)
+texture = ExtResource("4_iahso")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 5000)
+metadata/_edit_lock_ = true
 
 [node name="Boundery" type="Node" parent="."]
 

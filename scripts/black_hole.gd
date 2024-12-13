@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
-var end_scene: PackedScene = load("res://scenes/end.tscn")
+@export var scene: PackedScene = load("res://scenes/end.tscn")
+@export var inst: bool = false
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	var tween = create_tween()
@@ -9,5 +10,8 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	tween.tween_property(body, "rotation", 10, 1)
 	
 	await tween.finished
-	get_tree().paused = true
-	add_child(end_scene.instantiate())
+	if inst:
+		get_tree().paused = true
+		add_child(scene.instantiate())
+	else:
+		get_tree().change_scene_to_packed(scene)

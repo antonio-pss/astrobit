@@ -25,3 +25,5 @@ func create_laser(pos):
 	laser.position = pos
 	laser.direction = Vector2(Globals.enemy_focus.global_position - pos).normalized()
 	add_child(laser)
+
+	

@@ -18,14 +18,14 @@ func _process(delta: float) -> void:
 		if not player_near:
 			direction = (Globals.player_pos - position).normalized()
 		position += direction * current_speed * delta
-		turn(direction.x)
+		turn()
 
 
-func turn(direction) -> void:
-	if direction > 0:
+func turn() -> void:
+	if direction.x > 0:
 		sprite.scale.x = -1
 		collision.scale.x = -1
-	if direction < 0:
+	if direction.x < 0:
 		sprite.scale.x = 1
 		collision.scale.x = 1
 
@@ -43,8 +43,7 @@ func hit():
 		vulnerable = false
 		$HitTimer.start()
 		health -= 1
-		if sprite.animation != "death":
-			sprite.play("damage")
+		sprite.play("damage")
 
 
 func _on_notice_area_2d_body_entered(_body: Node2D) -> void:
@@ -75,7 +74,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		sprite.animation = "attack"
 
 func _on_attack_timer_timeout() -> void:
-	if sprite.animation != "death":
+	if sprite.animation != "death" and sprite.animation != "damage":
 		sprite.play("atack")
 
 

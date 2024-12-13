@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxhkwuy4wqtc5"]
+[gd_scene load_steps=2 format=3 uid="uid://bd4edocvm76m0"]
 
-[ext_resource type="Script" path="res://scripts/mobile_ui.gd" id="1_dyppr"]
-[ext_resource type="Texture2D" uid="uid://bbri3lmd307w0" path="res://images/previous.png" id="1_g1vka"]
+[ext_resource type="Texture2D" uid="uid://bbri3lmd307w0" path="res://images/previous.png" id="2_riopb"]
 
 [node name="MobileUI" type="CanvasLayer"]
-visible = false
-script = ExtResource("1_dyppr")
 
 [node name="Movement" type="MarginContainer" parent="."]
 anchors_preset = 2
@@ -22,7 +19,10 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="Left" type="TouchScreenButton" parent="Movement/Left"]
-texture_normal = ExtResource("1_g1vka")
+texture_normal = ExtResource("2_riopb")
+passby_press = true
+action = "left"
+visibility_mode = 1
 
 [node name="Right" type="Control" parent="Movement"]
 custom_minimum_size = Vector2(128, 128)
@@ -30,7 +30,10 @@ layout_mode = 2
 
 [node name="Right" type="TouchScreenButton" parent="Movement/Right"]
 position = Vector2(150, 0)
-texture_normal = ExtResource("1_g1vka")
+texture_normal = ExtResource("2_riopb")
+passby_press = true
+action = "right"
+visibility_mode = 1
 
 [node name="Abilities" type="MarginContainer" parent="."]
 anchors_preset = 3
@@ -51,14 +54,20 @@ layout_mode = 2
 
 [node name="Shoot" type="TouchScreenButton" parent="Abilities/Shoot"]
 position = Vector2(-150, 0)
-texture_normal = ExtResource("1_g1vka")
+texture_normal = ExtResource("2_riopb")
+passby_press = true
+action = "primary"
+visibility_mode = 1
 
 [node name="Jump" type="Control" parent="Abilities"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="Jump" type="TouchScreenButton" parent="Abilities/Jump"]
-texture_normal = ExtResource("1_g1vka")
+texture_normal = ExtResource("2_riopb")
+passby_press = true
+action = "up"
+visibility_mode = 1
 
 [node name="Menu" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -76,10 +85,6 @@ layout_mode = 2
 
 [node name="Menu" type="TouchScreenButton" parent="Menu/Menu"]
 position = Vector2(0, 50)
-texture_normal = ExtResource("1_g1vka")
-
-[connection signal="pressed" from="Movement/Left/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Movement/Right/Right" to="." method="_on_right_pressed"]
-[connection signal="pressed" from="Abilities/Shoot/Shoot" to="." method="_on_shoot_pressed"]
-[connection signal="pressed" from="Abilities/Jump/Jump" to="." method="_on_jump_pressed"]
-[connection signal="pressed" from="Menu/Menu/Menu" to="." method="_on_menu_pressed"]
+texture_normal = ExtResource("2_riopb")
+action = "pause"
+visibility_mode = 1

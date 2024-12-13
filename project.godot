@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="astrobit"
-run/main_scene="res://scenes/level_1.tscn"
+run/main_scene="res://scenes/level_2.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
 Globals="*res://scripts/globals.gd"
 UI="*res://scenes/ui.tscn"
+MobileUI="*res://scenes/mobile_ui.tscn"
 PauseMenu="*res://scenes/pause_menu.tscn"
 LoginMenu="*res://scenes/login.tscn"
 

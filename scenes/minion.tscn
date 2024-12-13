@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://by8exc7d4k5w8"]
 
 [ext_resource type="Script" path="res://scripts/minion.gd" id="1_puwa2"]
-[ext_resource type="SpriteFrames" uid="uid://c44y31rxqssfj" path="res://images/bito.tres" id="2_x0vgr"]
+[ext_resource type="SpriteFrames" uid="uid://btoecxje4k38y" path="res://scenes/bito.tres" id="2_ocrnj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pejlh"]
 radius = 502.143
@@ -15,8 +15,8 @@ script = ExtResource("1_puwa2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
-sprite_frames = ExtResource("2_x0vgr")
-animation = &"shoot"
+sprite_frames = ExtResource("2_ocrnj")
+animation = &"walk"
 autoplay = "walk"
 flip_h = true
 

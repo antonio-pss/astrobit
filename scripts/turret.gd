@@ -26,4 +26,5 @@ func _on_laser_timer_timeout() -> void:
 func _on_hit_box_body_entered(_body: Node2D) -> void:
 	can_laser = false
 	$AnimatedSprite2D.play("correct")
+	Globals.score += 30
 	timer.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://be8g8guqca4ik"]
+[gd_scene load_steps=65 format=3 uid="uid://be8g8guqca4ik"]
 
 [ext_resource type="Script" path="res://scripts/bug.gd" id="1_ybypm"]
 [ext_resource type="Texture2D" uid="uid://chq5x443f7hf2" path="res://images/bug.png" id="2_h2evk"]
@@ -208,34 +208,6 @@ region = Rect2(3584, 3072, 512, 512)
 atlas = ExtResource("3_hgf5k")
 region = Rect2(0, 3584, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tskk"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(512, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnn22"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(1024, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbosm"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(1536, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bc0h6"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(2048, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cu672"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(2560, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qj5ue"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(3072, 3584, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jla0"]
-atlas = ExtResource("3_hgf5k")
-region = Rect2(3584, 3584, 512, 512)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tohhu"]
 atlas = ExtResource("2_h2evk")
 region = Rect2(0, 0, 35, 32)
@@ -428,31 +400,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_idk86")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tskk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnn22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fbosm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bc0h6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cu672")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qj5ue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0jla0")
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 20.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
