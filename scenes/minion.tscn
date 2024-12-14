@@ -21,6 +21,7 @@ autoplay = "walk"
 flip_h = true
 
 [node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 4

@@ -368,6 +368,7 @@ size = Vector2(82, 68)
 modulate = Color(0.427451, 0, 0.231373, 1)
 sprite_frames = SubResource("SpriteFrames_4mfng")
 autoplay = "default"
+frame_progress = 0.390149
 script = ExtResource("2_vglvt")
 
 [node name="Area2D" type="Area2D" parent="."]

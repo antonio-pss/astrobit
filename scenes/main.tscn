@@ -12,7 +12,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7vj1v"]
-distance = -46.0
+distance = -2058.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_wlfwk")

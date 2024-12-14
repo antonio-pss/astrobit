@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgdowdp0lrp14"]
 
 [ext_resource type="Script" path="res://scripts/check_point.gd" id="1_7clxv"]
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_af660"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="2_af660"]
 [ext_resource type="Texture2D" uid="uid://dg7mx6d6dvwb4" path="res://images/pc.png" id="2_n1286"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylc6b"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://bvwyo457ff76r"]
+[gd_scene load_steps=23 format=4 uid="uid://bvwyo457ff76r"]
 
 [ext_resource type="PackedScene" uid="uid://bkyh4ymwe0jqd" path="res://scenes/main.tscn" id="1_tyqho"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="2_l7vip"]
 [ext_resource type="TileSet" uid="uid://bgykvojkga4uf" path="res://scenes/main-tile.tres" id="3_2w1cn"]
+[ext_resource type="PackedScene" uid="uid://jc4pkey3hvmt" path="res://scenes/planet.tscn" id="3_hrdcg"]
 [ext_resource type="PackedScene" uid="uid://cm28qkrjlt4tq" path="res://scenes/coin.tscn" id="4_cjokb"]
 [ext_resource type="PackedScene" uid="uid://bhocu7nyypbte" path="res://scenes/black_hole.tscn" id="4_h7tm4"]
 [ext_resource type="PackedScene" uid="uid://b6djh4jhxhxkg" path="res://scenes/coffee.tscn" id="5_8kcum"]
@@ -41,9 +42,9 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_1q5bc"]
+[sub_resource type="Curve2D" id="Curve2D_i1nng"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -144, -88, 0, 0, 0, 0, 0, -16)
+"points": PackedVector2Array(0, 0, 0, 0, -144, -88, 0, 0, 0, 0, 16, -8)
 }
 point_count = 2
 
@@ -51,7 +52,18 @@ point_count = 2
 script = ExtResource("2_l7vip")
 
 [node name="Player" parent="." index="0"]
-position = Vector2(2238, -307)
+position = Vector2(-584, -624)
+
+[node name="Planet" parent="Map/Planets" index="0" instance=ExtResource("3_hrdcg")]
+modulate = Color(0.427451, 0, 0.231373, 1)
+position = Vector2(-584, -616)
+rotation = -2.43473
+scale = Vector2(5, 5)
+animation = &"galaxy"
+autoplay = "galaxy"
+frame_progress = 0.194601
+speed_scale = 1.0
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Map" index="1"]
 z_index = 1
@@ -66,6 +78,7 @@ metadata/_edit_lock_ = true
 [node name="BlackHole" parent="Map" index="4" instance=ExtResource("4_h7tm4")]
 position = Vector2(4672, -520)
 scale = Vector2(5, 5)
+frame_progress = 0.152229
 scene = ExtResource("5_robar")
 
 [node name="Coin4" parent="Objects/Coins" index="0" instance=ExtResource("4_cjokb")]
@@ -294,10 +307,11 @@ curve = SubResource("Curve2D_5mw0g")
 position = Vector2(63, 0)
 
 [node name="Path2D3" type="Path2D" parent="Enemies/Bugs" index="2"]
-curve = SubResource("Curve2D_1q5bc")
+curve = SubResource("Curve2D_i1nng")
 
 [node name="Bug" parent="Enemies/Bugs/Path2D3" index="0" instance=ExtResource("13_rdxh2")]
 position = Vector2(-144, -88)
+rotation = 0.436332
 
 [node name="Turret" parent="Enemies/Turrets" index="0" instance=ExtResource("14_2tj4p")]
 position = Vector2(2453, -257)

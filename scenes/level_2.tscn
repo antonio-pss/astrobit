@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c07o5isyfyjq8"]
+[gd_scene load_steps=30 format=4 uid="uid://c07o5isyfyjq8"]
 
 [ext_resource type="PackedScene" uid="uid://bkyh4ymwe0jqd" path="res://scenes/main.tscn" id="1_bli32"]
 [ext_resource type="Texture2D" uid="uid://cak3fpomuxfss" path="res://images/crystal.png" id="2_ahfef"]
@@ -17,9 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://bgdowdp0lrp14" path="res://scenes/check_point.tscn" id="8_5i282"]
 [ext_resource type="PackedScene" uid="uid://be8g8guqca4ik" path="res://scenes/bug.tscn" id="15_sk34o"]
 [ext_resource type="PackedScene" uid="uid://dm1x0dfjfphrf" path="res://scenes/turret.tscn" id="15_w0rig"]
+[ext_resource type="PackedScene" uid="uid://jc4pkey3hvmt" path="res://scenes/planet.tscn" id="18_8s60w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpr1y"]
 size = Vector2(43.845, 133)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7vmoq"]
+distance = -47.0
 
 [sub_resource type="Curve2D" id="Curve2D_tt1a8"]
 _data = {
@@ -79,7 +83,7 @@ point_count = 2
 script = ExtResource("2_vrx73")
 
 [node name="Player" parent="." index="0"]
-position = Vector2(420, -959)
+position = Vector2(3908, -122)
 
 [node name="Minion" parent="Player/Path2D" index="0"]
 visible = false
@@ -124,7 +128,16 @@ texture = ExtResource("2_ahfef")
 region_enabled = true
 region_rect = Rect2(230, 178, 34, 57)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Map/Others" index="5"]
+[node name="Sprite2D9" type="Sprite2D" parent="Map/Others" index="5"]
+position = Vector2(4100, -239)
+rotation = 0.420168
+scale = Vector2(1, 0.758)
+texture = ExtResource("2_ahfef")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(230, 178, 34, 57)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map/Others" index="6"]
 position = Vector2(4127, -78.0002)
 rotation = 0.785397
 scale = Vector2(1, 0.758464)
@@ -132,7 +145,7 @@ texture = ExtResource("2_ahfef")
 region_enabled = true
 region_rect = Rect2(230, 178, 34, 57)
 
-[node name="Sprite2D8" type="Sprite2D" parent="Map/Others" index="6"]
+[node name="Sprite2D8" type="Sprite2D" parent="Map/Others" index="7"]
 position = Vector2(4189, -77)
 rotation = -0.261799
 scale = Vector2(1, 0.758464)
@@ -140,16 +153,9 @@ texture = ExtResource("2_ahfef")
 region_enabled = true
 region_rect = Rect2(230, 178, 34, 57)
 
-[node name="Sprite2D5" type="Sprite2D" parent="Map/Others" index="7"]
-position = Vector2(4338, -81.0001)
-rotation = -0.523598
-scale = Vector2(1, 0.758464)
-texture = ExtResource("2_ahfef")
-region_enabled = true
-region_rect = Rect2(230, 178, 34, 57)
-
 [node name="Bito" parent="Map/Others" index="8" instance=ExtResource("3_6086i")]
-position = Vector2(4274, -97)
+position = Vector2(4308, -124)
+rotation = 0.073841
 
 [node name="Area2D" type="Area2D" parent="Map/Others" index="9"]
 position = Vector2(3801.84, -158.236)
@@ -189,11 +195,20 @@ position = Vector2(4589, -129)
 scale = Vector2(3, 3)
 scene = ExtResource("7_74ds4")
 
-[node name="BlackHole2" parent="Map" index="6" instance=ExtResource("6_m4gtj")]
-position = Vector2(399, -1287)
-rotation = -2.46141
-scale = Vector2(4, 4)
-scene = ExtResource("7_74ds4")
+[node name="Planet" parent="Map" index="6" instance=ExtResource("18_8s60w")]
+modulate = Color(0.427451, 0, 0.231373, 1)
+position = Vector2(419.885, -1338.8)
+rotation = -2.43473
+scale = Vector2(5, 5)
+animation = &"galaxy"
+autoplay = "galaxy"
+frame_progress = 0.00125882
+speed_scale = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Bottom" parent="Boundery/Bottom" index="0"]
+position = Vector2(-23, 318)
+shape = SubResource("WorldBoundaryShape2D_7vmoq")
 
 [node name="Coin" parent="Objects/Coins" index="0" instance=ExtResource("4_1k35g")]
 position = Vector2(1872, -144)
@@ -345,7 +360,7 @@ rotation = 0.000248156
 speed = 100.0
 
 [node name="InitialSpawn" parent="Objects/Checkpoints" index="0"]
-position = Vector2(420, -971)
+position = Vector2(415, -1318)
 
 [node name="CheckPoint" parent="Objects/Checkpoints" index="1" instance=ExtResource("8_5i282")]
 position = Vector2(2192.48, -352.66)

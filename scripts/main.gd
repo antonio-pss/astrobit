@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 func _on_bottom_body_entered(_body: Node2D) -> void:
+	print("asdsad")
 	Globals.player_health -= 1
 	player.global_position = Globals.spawnpoint
 	
