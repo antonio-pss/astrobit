@@ -10,7 +10,12 @@ var direction: Vector2 = Vector2.LEFT
 var active: bool = false
 var vulnerable: bool = true
 var player_near: bool = false 
-var health = 4
+var health = 4:
+	set(value):
+		if value >= 0:
+			health = value
+			
+			
 
 
 func _process(delta: float) -> void:
@@ -19,7 +24,17 @@ func _process(delta: float) -> void:
 			direction = (Globals.player_pos - position).normalized()
 		position += direction * current_speed * delta
 		turn()
-
+		
+	if health == 0:
+		health -= 1
+		vulnerable = false
+		$HitTimer.stop()
+		$AttackTimer.stop()
+		sprite.play("death")
+		current_speed = 0
+		await get_tree().create_timer(1).timeout
+		Globals.score += 50
+		queue_free()
 
 func turn() -> void:
 	if direction.x > 0:
@@ -28,22 +43,16 @@ func turn() -> void:
 	if direction.x < 0:
 		sprite.scale.x = 1
 		collision.scale.x = 1
+	
 
 
 func hit():
-	if health == 0:
-		Globals.score += 50
-		health -= 1
-		vulnerable = false
-		sprite.play("death")
-		current_speed = 0
-		await sprite.animation_finished
-		queue_free()
-	elif vulnerable:
+	if vulnerable:
 		vulnerable = false
 		$HitTimer.start()
 		health -= 1
-		sprite.play("damage")
+		if sprite.animation != "death":
+			sprite.play("damage")
 
 
 func _on_notice_area_2d_body_entered(_body: Node2D) -> void:
@@ -83,4 +92,5 @@ func _on_hit_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.hit()
+	if sprite.animation != "death":
+		body.hit()

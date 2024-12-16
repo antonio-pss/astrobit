@@ -1,4 +1,5 @@
 extends Area2D
+class_name Laser
 
 var speed: int = 200
 var direction: Vector2 = Vector2.LEFT
@@ -12,12 +13,12 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _on_body_entered(body: Node2D) -> void:
-	if "hit" in body:
+	if "hit" in body and (body.name != "Player" or Globals.enemy_focus == []):
 		body.hit()
-		queue_free()
+		queue_free();
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if "hit" in area:
 		area.hit()
-	queue_free()
+		queue_free()

@@ -1,33 +1,25 @@
 extends CanvasLayer
 
+@onready var box: HBoxContainer = %Box
 @onready var score: Label = $Score/BoxContainer/Label
-var lifes = []
 var coffee_full = load("res://images/coffee/0.png")
-var coffee_empty = load("res://images/coffee/1.png")
 	
 func _ready() -> void:
+	update_life()
+	
+
+func update_life() -> void:
+	clean_life()
 	for index in range(Globals.player_health):
 		var coffee_rect = TextureRect.new()
 		coffee_rect.texture = coffee_full
-		lifes.append(coffee_rect)
-		$Life/HBoxContainer.add_child(coffee_rect)
-		
-				
-func update_life() -> void:
-	for index in range(lifes.size()):
-		if index + 1 > Globals.player_health:
-			lifes[index].texture = coffee_empty
-		else:
-			lifes[index].texture = coffee_full
-			
-func add_life() -> void:
-	if Globals.player_health > lifes.size():
-		var coffee_rect = TextureRect.new()
-		coffee_rect.texture = coffee_full
-		lifes.append(coffee_rect)
-		$Life/HBoxContainer.add_child(coffee_rect)
+		box.add_child(coffee_rect) 
 
-	
+func clean_life() -> void:
+	if box.get_child_count() != 0:
+		for child in box.get_children():
+			child.queue_free()
+
 func update_score() -> void:
 	score.text = str(Globals.score)
 	

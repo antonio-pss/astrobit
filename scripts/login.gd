@@ -22,6 +22,10 @@ func _on_entrar_pressed() -> void:
 
 	http_request.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 	
+	Globals.player.t_name = nome.text
+	hide()
+	Globals.resume()
+	
 
 func _on_HTTPRequest_request_completed(_result, response_code, _headers, body):
 	var json_parse = JSON.new()

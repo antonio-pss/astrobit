@@ -3,10 +3,11 @@
 [ext_resource type="Script" path="res://scripts/minion.gd" id="1_puwa2"]
 [ext_resource type="SpriteFrames" uid="uid://btoecxje4k38y" path="res://scenes/bito.tres" id="2_ocrnj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pejlh"]
-radius = 502.143
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nk1e"]
+size = Vector2(880, 264)
 
 [node name="Minion" type="PathFollow2D"]
+z_index = 1
 rotates = false
 cubic_interp = false
 loop = false
@@ -16,7 +17,7 @@ script = ExtResource("1_puwa2")
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_ocrnj")
-animation = &"walk"
+animation = &"shoot"
 autoplay = "walk"
 flip_h = true
 
@@ -28,8 +29,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-visible = false
-shape = SubResource("CircleShape2D_pejlh")
+shape = SubResource("RectangleShape2D_5nk1e")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6, 0)
