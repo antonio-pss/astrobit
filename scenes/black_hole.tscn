@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhocu7nyypbte"]
+
+[ext_resource type="SpriteFrames" uid="uid://corbnrnk1wdl5" path="res://images/planet.tres" id="1_vxhp8"]
+[ext_resource type="Script" path="res://scripts/black_hole.gd" id="2_vglvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpsy3"]
+size = Vector2(82, 68)
+
+[node name="BlackHole" type="AnimatedSprite2D"]
+self_modulate = Color(0.427451, 0, 0.231373, 1)
+rotation = 0.00514489
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("1_vxhp8")
+animation = &"galaxy"
+autoplay = "galaxy"
+script = ExtResource("2_vglvt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gpsy3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

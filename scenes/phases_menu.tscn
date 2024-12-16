@@ -1,14 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbhn8t7xjo0wt"]
+[gd_scene load_steps=17 format=3 uid="uid://dbhn8t7xjo0wt"]
 
-[ext_resource type="Script" path="res://scenes/phases_menu.gd" id="1_38yhb"]
 [ext_resource type="Texture2D" uid="uid://ddllxd4kyb810" path="res://images/space-background/Space Background (1).png" id="1_t42bt"]
+[ext_resource type="Script" path="res://scripts/phases_menu.gd" id="1_yjkao"]
 [ext_resource type="Texture2D" uid="uid://bcskstx83oajp" path="res://images/icon.png" id="2_7j5he"]
-[ext_resource type="Texture2D" uid="uid://bnnde3qy5qwfj" path="res://images/btn_large/0.png" id="3_3l474"]
-[ext_resource type="Texture2D" uid="uid://gvo3mki777pl" path="res://images/btn_large/1.png" id="4_rfq0h"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/1/1_01.png" id="4_yyndm"]
 [ext_resource type="Texture2D" uid="uid://cjkk5unrijuq1" path="res://images/Tela Astro.png" id="5_l24ic"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/2/2_01.png" id="5_y0mou"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/1/1_02.png" id="6_5j7n1"]
+[ext_resource type="Texture2D" uid="uid://0qls0jquwmq1" path="res://images/buttons/Seta Esquerda.png" id="7_0pv00"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/2/2_02.png" id="7_mlyfo"]
+[ext_resource type="Texture2D" uid="uid://cpo3dno7fm3pa" path="res://images/buttons/0.png" id="7_mnwbb"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/1/1_03.png" id="8_mxpo5"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/2/2_03.png" id="9_88imb"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/1/1_04.png" id="10_o13ow"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/2/2_04.png" id="11_dq4sf"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/1/1_05.png" id="12_arj83"]
+[ext_resource type="Texture2D" path="res://craftpix-tilesets/buttons-gui-simple/5 GUI/Levels/2/2_05.png" id="13_6qpnn"]
 
 [node name="PhasesMenu" type="CanvasLayer"]
-script = ExtResource("1_38yhb")
+script = ExtResource("1_yjkao")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -42,126 +52,33 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
 layout_mode = 2
-texture_normal = ExtResource("3_3l474")
-texture_pressed = ExtResource("4_rfq0h")
-texture_hover = ExtResource("4_rfq0h")
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Tutorial"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Tutorial
-"
-horizontal_alignment = 1
+texture_normal = ExtResource("4_yyndm")
+texture_pressed = ExtResource("5_y0mou")
 
 [node name="Phase1" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
 layout_mode = 2
-texture_normal = ExtResource("3_3l474")
-texture_pressed = ExtResource("4_rfq0h")
-texture_hover = ExtResource("4_rfq0h")
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Fase 1"
-horizontal_alignment = 1
+texture_normal = ExtResource("6_5j7n1")
+texture_pressed = ExtResource("7_mlyfo")
 
 [node name="Phase2" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
 layout_mode = 2
-texture_normal = ExtResource("3_3l474")
-texture_pressed = ExtResource("4_rfq0h")
-texture_hover = ExtResource("4_rfq0h")
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Fase 2
-"
-horizontal_alignment = 1
+texture_normal = ExtResource("8_mxpo5")
+texture_pressed = ExtResource("9_88imb")
 
 [node name="Phase3" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
 layout_mode = 2
-texture_normal = ExtResource("3_3l474")
-texture_pressed = ExtResource("4_rfq0h")
-texture_hover = ExtResource("4_rfq0h")
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Fase 3
-"
-horizontal_alignment = 1
+texture_normal = ExtResource("10_o13ow")
+texture_pressed = ExtResource("11_dq4sf")
 
 [node name="Phase4" type="TextureButton" parent="VBoxContainer/HBoxContainer/Phases"]
 layout_mode = 2
-texture_normal = ExtResource("3_3l474")
-texture_pressed = ExtResource("4_rfq0h")
-texture_hover = ExtResource("4_rfq0h")
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Phases/Phase4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Fase 4
-"
-horizontal_alignment = 1
+texture_normal = ExtResource("12_arj83")
+texture_pressed = ExtResource("13_6qpnn")
 
 [node name="Display" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -201,8 +118,46 @@ autowrap_mode = 3
 clip_text = true
 text_direction = 1
 
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+texture_normal = ExtResource("7_mnwbb")
+
+[node name="Label" type="Label" parent="VBoxContainer/Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Entrar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.0694444
+anchor_bottom = 0.123457
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_0pv00")
+stretch_mode = 0
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase1" to="." method="_on_phase_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase2" to="." method="_on_phase_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase3" to="." method="_on_phase_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Phases/Phase4" to="." method="_on_phase_pressed"]
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

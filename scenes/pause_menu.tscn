@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cicnxc4545s44"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vvrl5"]
-[ext_resource type="Texture2D" uid="uid://cpo3dno7fm3pa" path="res://images/buttons/0.png" id="2_waaxv"]
-[ext_resource type="Texture2D" uid="uid://bsxa7nmr7hvye" path="res://images/buttons/1.png" id="3_shmu2"]
+[ext_resource type="Texture2D" uid="uid://crh3uj6gg1mqh" path="res://images/medium_normal.png" id="2_30l5s"]
+[ext_resource type="Texture2D" uid="uid://c50p8xmkrqk6a" path="res://images/medium_hover.png" id="3_ffk2c"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -34,11 +34,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Resume"]
 layout_mode = 1
@@ -62,11 +59,8 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Restart"]
 layout_mode = 1
@@ -81,19 +75,65 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Voltar Checkpoint"
+horizontal_alignment = 1
+
+[node name="Reset" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
+
+[node name="Label" type="Label" parent="VBoxContainer/Reset"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 26
-text = "Reiniciar"
+text = "Voltar Tudo"
+horizontal_alignment = 1
+
+[node name="Entrar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
+
+[node name="Label" type="Label" parent="VBoxContainer/Entrar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Entrar na Conta
+"
 horizontal_alignment = 1
 
 [node name="Quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-texture_normal = ExtResource("2_waaxv")
-texture_pressed = ExtResource("3_shmu2")
-texture_hover = ExtResource("3_shmu2")
-texture_disabled = ExtResource("2_waaxv")
-texture_focused = ExtResource("3_shmu2")
+texture_normal = ExtResource("2_30l5s")
+texture_hover = ExtResource("3_ffk2c")
 
 [node name="Label" type="Label" parent="VBoxContainer/Quit"]
 layout_mode = 1
@@ -114,4 +154,6 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="button_down" from="VBoxContainer/Entrar" to="." method="_on_entrar_button_down"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

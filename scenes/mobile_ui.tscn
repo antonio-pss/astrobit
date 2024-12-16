@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://bd4edocvm76m0"]
+
+[ext_resource type="Script" path="res://scripts/mobile_ui.gd" id="1_s67ea"]
+[ext_resource type="Texture2D" uid="uid://cftm7kvid44ah" path="res://images/arrows/leftN.png" id="1_tbots"]
+[ext_resource type="Texture2D" uid="uid://dkhkjlrk5do1q" path="res://images/arrows/leftH.png" id="2_y5ehg"]
+[ext_resource type="Texture2D" uid="uid://deyuwxe4i4s6x" path="res://images/arrows/rightN.png" id="3_j7rv7"]
+[ext_resource type="Texture2D" uid="uid://6r6x1wqnalo8" path="res://images/arrows/rightH.png" id="4_rhy7a"]
+[ext_resource type="Texture2D" uid="uid://di4ev0ii8fgkt" path="res://images/arrows/shootN.png" id="5_dlnbb"]
+[ext_resource type="Texture2D" uid="uid://ina50tnkxoj7" path="res://images/arrows/shootH.png" id="6_a44ty"]
+[ext_resource type="Texture2D" uid="uid://bnyxueo8if787" path="res://images/arrows/upN.png" id="7_4lot6"]
+[ext_resource type="Texture2D" uid="uid://bwk2mo7esxrh5" path="res://images/arrows/upH.png" id="8_dtvsf"]
+[ext_resource type="Texture2D" uid="uid://fr8nbgvguwft" path="res://images/arrows/list.png" id="9_vyueu"]
+
+[node name="MobileUI" type="CanvasLayer"]
+script = ExtResource("1_s67ea")
+
+[node name="Movement" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Left" type="Control" parent="Movement"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+
+[node name="Left" type="TouchScreenButton" parent="Movement/Left"]
+texture_normal = ExtResource("1_tbots")
+texture_pressed = ExtResource("2_y5ehg")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="Right" type="Control" parent="Movement"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+
+[node name="Right" type="TouchScreenButton" parent="Movement/Right"]
+position = Vector2(250, 0)
+texture_normal = ExtResource("3_j7rv7")
+texture_pressed = ExtResource("4_rhy7a")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="Abilities" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Shoot" type="Control" parent="Abilities"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+
+[node name="Shoot" type="TouchScreenButton" parent="Abilities/Shoot"]
+visible = false
+position = Vector2(-250, 0)
+texture_normal = ExtResource("5_dlnbb")
+texture_pressed = ExtResource("6_a44ty")
+passby_press = true
+action = "primary"
+visibility_mode = 1
+
+[node name="Jump" type="Control" parent="Abilities"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+
+[node name="Jump" type="TouchScreenButton" parent="Abilities/Jump"]
+texture_normal = ExtResource("7_4lot6")
+texture_pressed = ExtResource("8_dtvsf")
+passby_press = true
+action = "up"
+visibility_mode = 1
+
+[node name="Menu" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="Menu" type="Control" parent="Menu"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Menu" type="TouchScreenButton" parent="Menu/Menu"]
+position = Vector2(35, 50)
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("9_vyueu")
+action = "pause"
+visibility_mode = 1

@@ -1,23 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://by8exc7d4k5w8"]
+[gd_scene load_steps=4 format=3 uid="uid://by8exc7d4k5w8"]
 
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="1_05vfn"]
-[ext_resource type="Script" path="res://scenes/minion.gd" id="1_44bo2"]
+[ext_resource type="Script" path="res://scripts/minion.gd" id="1_puwa2"]
+[ext_resource type="SpriteFrames" uid="uid://btoecxje4k38y" path="res://scenes/bito.tres" id="2_ocrnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nk1e"]
+size = Vector2(880, 264)
 
 [node name="Minion" type="PathFollow2D"]
+z_index = 1
 rotates = false
 cubic_interp = false
 loop = false
-script = ExtResource("1_44bo2")
+script = ExtResource("1_puwa2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
-texture = ExtResource("1_05vfn")
-region_enabled = true
-region_rect = Rect2(137.983, 232.865, 14.0167, 11.0032)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(7, -4)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_ocrnj")
+animation = &"shoot"
+autoplay = "walk"
+flip_h = true
 
 [node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
 
+[node name="AttackArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("RectangleShape2D_5nk1e")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(6, 0)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]

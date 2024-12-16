@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgdowdp0lrp14"]
+[gd_scene load_steps=8 format=3 uid="uid://bgdowdp0lrp14"]
 
 [ext_resource type="Script" path="res://scripts/check_point.gd" id="1_7clxv"]
-[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://tilesets/industrial-plataform.png" id="2_af660"]
+[ext_resource type="Texture2D" uid="uid://duhlgw566ct7a" path="res://images/industrial-plataform.png" id="2_af660"]
+[ext_resource type="Texture2D" uid="uid://dg7mx6d6dvwb4" path="res://images/pc.png" id="2_n1286"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylc6b"]
+atlas = ExtResource("2_n1286")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgxmb"]
 atlas = ExtResource("2_af660")
@@ -11,10 +16,18 @@ region = Rect2(160, 224, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ylc6b")
+}],
+"loop": true,
+"name": &"correct",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vgxmb")
 }],
 "loop": true,
-"name": &"default",
+"name": &"virus",
 "speed": 5.0
 }]
 
@@ -27,6 +40,7 @@ script = ExtResource("1_7clxv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_xa2sw")
+animation = &"virus"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -42.5)
