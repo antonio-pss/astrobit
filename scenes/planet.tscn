@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jc4pkey3hvmt"]
+[gd_scene load_steps=2 format=3 uid="uid://dhqdjywkk7oj8"]
 
 [ext_resource type="SpriteFrames" uid="uid://corbnrnk1wdl5" path="res://images/planet.tres" id="1_s4lxl"]
 
 [node name="Planet" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_s4lxl")
 animation = &"earth"
-speed_scale = 0.1

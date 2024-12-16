@@ -14,7 +14,8 @@ scale = Vector2(1.25, 1.25)
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Life"]
+[node name="Box" type="HBoxContainer" parent="Life"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Score" type="MarginContainer" parent="."]

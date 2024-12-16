@@ -33,12 +33,13 @@ func _on_laser_timer_timeout() -> void:
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	enemy_nearby = true
-	Globals.enemy_focus = area
+	Globals.enemy_focus.append(area)
 	sprite.animation = "danger"
 	
-func _on_attack_area_area_exited(_area: Area2D) -> void:
-	enemy_nearby = false
-	Globals.enemy_focus = null
+func _on_attack_area_area_exited(area: Area2D) -> void:
+	if Globals.enemy_focus == []:
+		enemy_nearby = false
+	Globals.enemy_focus.erase(area)
 	sprite.animation = "walk"
 
 
